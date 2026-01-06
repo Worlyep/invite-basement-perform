@@ -1,49 +1,91 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
   <title>오늘을 노래하다</title>
 
   <style>
-    body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
       margin: 0;
-      background: #000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    img {
+      padding: 0;
       width: 100%;
-      max-width: 420px;
-      height: auto;
-      display: block;
+      height: 100%;
+      background: #000;
     }
 
-    a.button {
-      margin: 24px 0 40px;
-      padding: 14px 28px;
-      background: #fff;
+    body {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 포스터 전체화면 */
+    .poster {
+      position: absolute;
+      inset: 0;
+      background-image: url("poster.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* 하단 가독성용 그라데이션 */
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 60%,
+        rgba(0,0,0,0.65) 100%
+      );
+    }
+
+    /* CTA 버튼 */
+    .cta {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+    }
+
+    .cta a {
+      display: inline-block;
+      padding: 14px 30px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.92);
       color: #000;
       text-decoration: none;
+      font-size: 15px;
       font-weight: 500;
-      font-size: 16px;
+      letter-spacing: -0.2px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .cta a:active {
+      transform: scale(0.96);
     }
   </style>
 </head>
 <body>
 
-  <img src="poster.jpg" alt="공연 포스터">
+  <div class="poster"></div>
+  <div class="overlay"></div>
 
-  <a
-    class="button"
-    href="https://docs.google.com/forms/d/e/1FAIpQLSfycTBDwJAmN0ugPsPl-TcSVtslSbr2-KN4fyICgPdDqbGt6g/viewform"
-    target="_blank"
-  >
-    참석 여부 남기기
-  </a>
+  <div class="cta">
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSfycTBDwJAmN0ugPsPl-TcSVtslSbr2-KN4fyICgPdDqbGt6g/viewform"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      참석 여부 남기기
+    </a>
+  </div>
 
 </body>
 </html>
